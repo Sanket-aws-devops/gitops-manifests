@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-vm2
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/sanket-aws-devops/gitops-manifests.git
+    targetRevision: HEAD
+    path: k8s/  # SAME manifests as VM1!
+  destination:
+    name: vm2-cluster      # ← VM2 cluster name from secret
+    namespace: web
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
