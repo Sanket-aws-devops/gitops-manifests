@@ -10,7 +10,7 @@ spec:
     targetRevision: HEAD
     path: k8s/  # Points to folder with deployment.yaml
   destination:
-    server: https://kubernetes.default.svc
+    server: development
     namespace: web
   syncPolicy:
     automated:
