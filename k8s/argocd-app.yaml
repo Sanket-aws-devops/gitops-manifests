@@ -8,9 +8,9 @@ spec:
   source:
     repoURL: https://github.com/sanket-aws-devops/gitops-manifests.git
     targetRevision: HEAD
-    path: k8s/  # Points to folder with deployment.yaml
+    path: k8s/
   destination:
-    server: https://kubernetes.default.svc
+    server: https://kubernetes.default.svc  # ← FIXED: Local cluster
     namespace: web
   syncPolicy:
     automated:
