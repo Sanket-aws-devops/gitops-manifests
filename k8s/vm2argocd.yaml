@@ -10,7 +10,7 @@ spec:
     targetRevision: HEAD
     path: k8s  # Path to your deployment.yaml
   destination:
-    server: vm2-cluster #'https://192.168.58.2:8443'  # From $SERVER
+    name: vm2-cluster #'https://192.168.58.2:8443'  # From $SERVER
     namespace: web2
   syncPolicy:
     automated:
