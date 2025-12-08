@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-vm2
+  name: nginx-my-cluster
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/sanket-aws-devops/gitops-manifests.git
     targetRevision: HEAD
-    path: k8s/  # SAME manifests as VM1!
+    path: k8s  # Path to your deployment.yaml
   destination:
-    name: vm2-cluster      # ← VM2 cluster name from secret
-    namespace: web
+    server: 'https://192.168.58.2:8443'  # From $SERVER
+    namespace: web2
   syncPolicy:
     automated:
       prune: true
