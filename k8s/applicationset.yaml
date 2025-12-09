@@ -8,10 +8,10 @@ spec:
       elements:
       - appName: nginx
         namespace: new
-        path: k8s/nginx/                    # Points to nginx/ folder
+        path: nginx/                    # Points to nginx/ folder
       - appName: apache
         namespace: new2
-        path: k8s/apache/                  # Points to apache/ folder
+        path: apache/                  # Points to apache/ folder
   template:
     metadata:
       name: '{{appName}}'
