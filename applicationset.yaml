@@ -7,10 +7,10 @@ spec:
   - list:
       elements:
       - appName: nginx
-        namespace: web
+        namespace: new
         path: nginx/                    # Points to nginx/ folder
       - appName: apache
-        namespace: new
+        namespace: new2
         path: apache/                  # Points to apache/ folder
   template:
     metadata:
