@@ -4,14 +4,14 @@ metadata:
   name: web-servers
 spec:
   generators:
-  - list:
-      elements:
-      - appName: nginx
-        namespace: new
-        path: k8s/nginx/
-      - appName: apache
-        namespace: new2
-        path: k8s/apache/
+    - list:
+        elements:
+          - appName: nginx
+            namespace: new
+            path: k8s/nginx/
+          - appName: apache
+            namespace: new2
+            path: k8s/apache/
   template:
     metadata:
       name: '{{appName}}'
@@ -24,3 +24,9 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
