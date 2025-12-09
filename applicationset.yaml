@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: web-servers
+spec:
+  generators:
+  - list:
+      elements:
+      - appName: nginx
+        namespace: web
+        path: nginx/                    # Points to nginx/ folder
+      - appName: apache
+        namespace: new
+        path: apache/                  # Points to apache/ folder
+  template:
+    metadata:
+      name: '{{appName}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/YOUR-ORG/gitops-manifest.git  # YOUR actual repo
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
