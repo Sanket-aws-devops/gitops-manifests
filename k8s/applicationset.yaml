@@ -7,11 +7,11 @@ spec:
   - list:
       elements:
       - appName: nginx
-        namespace: web       # nginx to web namespace
-        path: nginx/         # relative path ✅
+        namespace: new
+        path: k8s/nginx/
       - appName: apache
-        namespace: new2      # apache to new2 namespace  
-        path: apache/        # relative path ✅
+        namespace: new2
+        path: k8s/apache/
   template:
     metadata:
       name: '{{appName}}'
@@ -24,4 +24,3 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
-      
