@@ -7,18 +7,18 @@ spec:
   - list:
       elements:
       - appName: nginx
-        namespace: new
-        path: nginx/                    # Points to nginx/ folder
+        namespace: web       # nginx to web namespace
+        path: nginx/         # relative path ✅
       - appName: apache
-        namespace: new2
-        path: apache/                  # Points to apache/ folder
+        namespace: new2      # apache to new2 namespace  
+        path: apache/        # relative path ✅
   template:
     metadata:
       name: '{{appName}}'
     spec:
       project: default
       source:
-        repoURL: https://github.com/sanket-aws-devops/gitops-manifests.git  # YOUR actual repo
+        repoURL: https://github.com/sanket-aws-devops/gitops-manifests.git
         targetRevision: HEAD
         path: '{{path}}'
       destination:
