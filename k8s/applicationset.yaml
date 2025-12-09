@@ -18,7 +18,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/YOUR-ORG/gitops-manifest.git  # YOUR actual repo
+        repoURL: https://github.com/sanket-aws-devops/gitops-manifests.git  # YOUR actual repo
         targetRevision: HEAD
         path: '{{path}}'
       destination:
