@@ -7,10 +7,10 @@ spec:
     - list:
         elements:
           - appName: nginx
-            namespace: new
+            namespace: nginx
             path: k8s/nginx/
           - appName: apache
-            namespace: new2
+            namespace: apache
             path: k8s/apache/
   template:
     metadata:
